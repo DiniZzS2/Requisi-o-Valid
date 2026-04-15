@@ -1,0 +1,217 @@
+:root {
+    --valid-blue: #1a73e8; /* Azul exato do botão do print */
+    --text-dark: #1f1f1f;
+    --text-muted: #5f6368;
+    --bg-white: #ffffff;
+    --danger-color: #d93025;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+}
+
+/* NAVBAR TRANSLÚCIDA */
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    z-index: 10;
+}
+
+.navbar .logo {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.btn-blue-pill {
+    background-color: var(--valid-blue);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+.hero {
+   
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+}
+
+.hero-content {
+    color: white;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #e0e0e0;
+}
+
+/* SEÇÃO DE CARTÕES (Visual Limpo "Soluções") */
+.container {
+    padding: 80px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    margin-bottom: 60px;
+}
+
+.blue-line {
+    width: 40px;
+    height: 4px;
+    background-color: var(--valid-blue);
+    margin-bottom: 15px;
+}
+
+.section-header h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.card {
+    background: transparent;
+    padding: 10px;
+}
+
+.icon-thin {
+    font-size: 40px;
+    color: var(--valid-blue);
+    margin-bottom: 20px;
+    font-weight: 300; /* Deixa o ícone bem fininho */
+}
+
+.card h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.card .desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* STATUS E LINKS */
+.status-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    padding: 8px 0;
+}
+
+.status-box.liberado { color: #1E8E3E; }
+.status-box.bloqueado { color: var(--danger-color); }
+/* --- BOTÕES PREMIUM --- */
+.acoes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-premium {
+    display: flex;
+    justify-content: space-between; /* Joga a seta lá pro canto direito */
+    align-items: center;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    background: transparent;
+    transition: all 0.3s ease; /* Animação suave */
+    width: 100%;
+}
+
+.seta {
+    transition: transform 0.3s ease;
+    font-size: 18px;
+}
+
+/* Botão Padrão (Azul) */
+.btn-premium.blue {
+    border: 2px solid var(--valid-blue);
+    color: var(--valid-blue);
+}
+
+.btn-premium.blue:hover:not(:disabled) {
+    background-color: var(--valid-blue);
+    color: white;
+    box-shadow: 0 4px 15px rgba(26, 115, 232, 0.2);
+}
+
+.btn-premium.blue:disabled {
+    border: 2px solid #E9ECEF;
+    color: #ADB5BD;
+    cursor: not-allowed;
+}
+
+/* Botão de Exceção (Vermelho) */
+.btn-premium.red {
+    border: 2px solid transparent; /* Sem borda inicial pra não poluir */
+    color: var(--danger-color);
+}
+
+.btn-premium.red:hover {
+    background-color: var(--danger-bg);
+    border-color: rgba(217, 48, 37, 0.2);
+}
+
+
+.btn-premium:hover:not(:disabled) .seta {
+    transform: translateX(6px);
+}

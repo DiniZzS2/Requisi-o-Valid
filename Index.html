@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valid | Portal de Uniformes</title>
+    <link rel="stylesheet" href="./CSS/Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Valid</div>
+        <div class="nav-links">
+            <span>Matrícula: 847291</span>
+            <span>João Pedro</span>
+            <button class="btn-blue-pill">Meu Perfil</button>
+        </div>
+    </nav>
+
+    <header class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('IMG/Imagem_ind.png') center/cover;">
+        <div class="hero-content">
+            <h1>Gestão inteligente para o<br>seu dia a dia</h1>
+            <p>Portal exclusivo para requisição de uniformes e EPIs.<br>Acompanhe suas cotas e faça solicitações de forma rápida.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="section-header">
+            <div class="blue-line"></div>
+            <h2>Meus Uniformes</h2>
+            <p class="subtitle">Elementos chaves para sua segurança e padronização</p>
+        </div>
+
+        <div class="cards-grid">
+            
+            <div class="card" id="card-camiseta">
+                <span class="material-symbols-outlined icon-thin">apparel</span>
+                <h4>Camiseta Gola Polo</h4>
+                <p class="desc">Cota Padrão: 2 unidades<br>Renovação a cada 6 meses</p>
+                
+                <div class="status-box" id="status-box-camiseta">
+                    <span class="material-symbols-outlined" id="icon-camiseta">pending</span>
+                    <p id="status-texto-camiseta">Calculando cota...</p>
+                </div>
+
+                <div class="acoes">
+                    <button class="btn-premium blue" id="btn-padrao-camiseta" disabled>
+                        Solicitar cota padrão <span class="seta">→</span>
+                    </button>
+                    <button class="btn-premium red" id="btn-emergencia-camiseta">
+                        Abrir exceção <span class="seta">→</span>
+                    </button>
+                </div>
+
+            <div class="card" id="card-bota">
+                <span class="material-symbols-outlined icon-thin">construction</span>
+                <h4>Bota de Segurança</h4>
+                <p class="desc">Cota Padrão: 1 par<br>Renovação a cada 9 meses</p>
+                
+                <div class="status-box" id="status-box-bota">
+                    <span class="material-symbols-outlined" id="icon-bota">pending</span>
+                    <p id="status-texto-bota">Calculando cota...</p>
+                </div>
+
+                <div class="acoes">
+                    <button class="btn-premium blue" id="btn-padrao-bota" disabled>
+                        Solicitar cota padrão <span class="seta">→</span>
+                    </button>
+                    <button class="btn-premium red" id="btn-emergencia-bota">
+                        Abrir exceção <span class="seta">→</span>
+                    </button>
+                </div>
+
+        </div>
+    </main>
+
+    <script src="./JS/Script.js"></script>
+</body>
+</html>
