@@ -13,13 +13,13 @@
     <nav class="navbar">
         <div class="logo">Valid</div>
         <div class="nav-links">
-            <span>Matrícula: 847291</span>
-            <span>João Pedro</span>
-            <button class="btn-blue-pill">Meu Perfil</button>
+            <span>Matrícula: <strong id="display-matricula">847291</strong></span>
+            <button id="btn-gestor" class="btn-blue-pill" style="display: none; background: #FF8C00;">Pendências Gestor</button>
+            <button class="btn-blue-pill" onclick="location.href='login.html'">Sair</button>
         </div>
     </nav>
 
-    <header class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('IMG/Imagem_ind.png') center/cover;">
+   <header class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('./IMG/Imagem_ind.png') top center/cover;">
         <div class="hero-content">
             <h1>Gestão inteligente para o<br>seu dia a dia</h1>
             <p>Portal exclusivo para requisição de uniformes e EPIs.<br>Acompanhe suas cotas e faça solicitações de forma rápida.</p>
@@ -34,47 +34,85 @@
         </div>
 
         <div class="cards-grid">
-            
             <div class="card" id="card-camiseta">
                 <span class="material-symbols-outlined icon-thin">apparel</span>
-                <h4>Camiseta Gola Polo</h4>
+                <h4>Camiseta Preta Valid</h4>
                 <p class="desc">Cota Padrão: 2 unidades<br>Renovação a cada 6 meses</p>
-                
                 <div class="status-box" id="status-box-camiseta">
                     <span class="material-symbols-outlined" id="icon-camiseta">pending</span>
-                    <p id="status-texto-camiseta">Calculando cota...</p>
+                    <p id="status-texto-camiseta">Calculando...</p>
                 </div>
-
                 <div class="acoes">
-                    <button class="btn-premium blue" id="btn-padrao-camiseta" disabled>
-                        Solicitar cota padrão <span class="seta">→</span>
-                    </button>
-                    <button class="btn-premium red" id="btn-emergencia-camiseta">
-                        Abrir exceção <span class="seta">→</span>
-                    </button>
+                    <button class="btn-premium blue" id="btn-padrao-camiseta" disabled>Solicitar cota padrão <span class="seta">→</span></button>
+                    <button class="btn-premium red" onclick="abrirModal('Camiseta')">Abrir exceção <span class="seta">→</span></button>
                 </div>
+            </div>
+
+            <div class="card" id="card-calca">
+                <span class="material-symbols-outlined icon-thin">checkroom</span>
+                <h4>Calça Preta</h4>
+                <p class="desc">Cota Padrão: 2 unidades<br>Renovação a cada 6 meses</p>
+                <div class="status-box" id="status-box-calca">
+                    <span class="material-symbols-outlined" id="icon-calca">pending</span>
+                    <p id="status-texto-calca">Calculando...</p>
+                </div>
+                <div class="acoes">
+                    <button class="btn-premium blue" id="btn-padrao-calca" disabled>Solicitar cota padrão <span class="seta">→</span></button>
+                    <button class="btn-premium red" onclick="abrirModal('Calça')">Abrir exceção <span class="seta">→</span></button>
+                </div>
+            </div>
 
             <div class="card" id="card-bota">
                 <span class="material-symbols-outlined icon-thin">construction</span>
                 <h4>Bota de Segurança</h4>
                 <p class="desc">Cota Padrão: 1 par<br>Renovação a cada 9 meses</p>
-                
                 <div class="status-box" id="status-box-bota">
                     <span class="material-symbols-outlined" id="icon-bota">pending</span>
-                    <p id="status-texto-bota">Calculando cota...</p>
+                    <p id="status-texto-bota">Calculando...</p>
                 </div>
-
                 <div class="acoes">
-                    <button class="btn-premium blue" id="btn-padrao-bota" disabled>
-                        Solicitar cota padrão <span class="seta">→</span>
-                    </button>
-                    <button class="btn-premium red" id="btn-emergencia-bota">
-                        Abrir exceção <span class="seta">→</span>
-                    </button>
+                    <button class="btn-premium blue" id="btn-padrao-bota" disabled>Solicitar cota padrão <span class="seta">→</span></button>
+                    <button class="btn-premium red" onclick="abrirModal('Bota')">Abrir exceção <span class="seta">→</span></button>
                 </div>
+            </div>
 
+            <div class="card" id="card-moletom">
+                <span class="material-symbols-outlined icon-thin">severe_cold</span>
+                <h4>Moletom Valid</h4>
+                <p class="desc">Cota Padrão: 1 unidade<br>Renovação a cada 12 meses</p>
+                <div class="status-box" id="status-box-moletom">
+                    <span class="material-symbols-outlined" id="icon-moletom">pending</span>
+                    <p id="status-texto-moletom">Calculando...</p>
+                </div>
+                <div class="acoes">
+                    <button class="btn-premium blue" id="btn-padrao-moletom" disabled>Solicitar cota padrão <span class="seta">→</span></button>
+                    <button class="btn-premium red" onclick="abrirModal('Moletom')">Abrir exceção <span class="seta">→</span></button>
+                </div>
+            </div>
         </div>
     </main>
+
+    <div id="modalEmergencia" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Justificativa de Emergência</h3>
+                <button onclick="fecharModal()" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="modal-item-nome"></p>
+                <label>Motivo da Exceção</label>
+                <select id="motivoEmergencia">
+                    <option value="desgaste">Desgaste Excessivo / Estragou</option>
+                    <option value="rasgo">Rasgo Acidental</option>
+                    <option value="mancha">Mancha Irreversível</option>
+                    <option value="perda">Perda / Extravio</option>
+                </select>
+                <label>Descrição Detalhada</label>
+                <textarea id="justificativaTexto" placeholder="Descreva o ocorrido para o gestor..."></textarea>
+                <button class="btn-premium red" onclick="enviarEmergencia()">ENVIAR SOLICITAÇÃO <span class="seta">→</span></button>
+            </div>
+        </div>
+    </div>
 
     <script src="./JS/Script.js"></script>
 </body>

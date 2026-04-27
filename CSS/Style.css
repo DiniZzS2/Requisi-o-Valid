@@ -1,217 +1,341 @@
 :root {
-    --valid-blue: #1a73e8; /* Azul exato do botão do print */
+    --valid-navy: #001B3D;
+    --valid-cyan: #00B4D8;
+    --valid-blue-btn: #1a73e8;
     --text-dark: #1f1f1f;
     --text-muted: #5f6368;
     --bg-white: #ffffff;
     --danger-color: #d93025;
+    --danger-bg: #FCE8E6;
+    --success-color: #1E8E3E;
+    --success-bg: #E6F4EA;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Inter', sans-serif; 
 }
 
-body {
-    background-color: var(--bg-white);
+body { 
+    background-color: var(--bg-white); 
+    color: var(--text-dark); 
+}
+
+/* NAVBAR */
+.navbar { 
+    position: absolute; 
+    top: 0; width: 100%; 
+    padding: 20px 60px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    color: white; 
+    z-index: 10; 
+}
+
+.navbar .logo { 
+    font-size: 28px; 
+    font-weight: 700; 
+}
+
+.nav-links { 
+    display: flex; 
+    align-items: center; 
+    gap: 30px; 
+    font-size: 14px; 
+}
+
+.btn-blue-pill { 
+    background-color: var(--valid-blue-btn); 
+    color: white; 
+    border: none; 
+    padding: 10px 24px; 
+    border-radius: 50px; 
+    font-weight: 600; 
+    cursor: pointer; 
+}
+
+/* HERO */
+.hero { 
+    height: 500px; 
+    display: flex; 
+    align-items: center; 
+    padding: 0 60px; 
+}
+
+.hero-content { 
+    color: white; 
+    max-width: 800px; 
+}
+
+.hero-content h1 { 
+    font-size: 48px; 
+    font-weight: 600; 
+    line-height: 1.2; 
+    margin-bottom: 20px; 
+}
+
+.hero-content p { 
+    font-size: 18px; 
+    color: #e0e0e0; 
+}
+
+/* CONTAINER & CARDS */
+.container { 
+    padding: 80px 60px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.blue-line { 
+    width: 40px; 
+    height: 4px; 
+    background-color: var(--valid-blue-btn); 
+    margin-bottom: 15px; 
+}
+
+.section-header h2 { 
+    font-size: 36px; 
+    margin-bottom: 10px; 
+}
+
+.cards-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 40px; 
+    margin-top: 40px; 
+}
+
+.card { 
+    padding: 10px; 
+}
+
+.icon-thin { 
+    font-size: 40px; 
+    color: var(--valid-blue-btn); 
+    margin-bottom: 20px; 
+    font-weight: 300; 
+}
+
+.card h4 { 
+    font-size: 20px; 
+    margin-bottom: 10px; 
+}
+
+.card .desc { 
+    font-size: 15px; 
+    color: var(--text-muted); 
+    margin-bottom: 20px; 
+    line-height: 1.5; 
+}
+
+/* STATUS BOX */
+.status-box { 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    font-size: 13px; 
+    font-weight: 500; 
+    margin-bottom: 20px; 
+    padding: 8px 12px; 
+    border-radius: 8px; 
+}
+
+.status-box.liberado { 
+    background: var(--success-bg); 
+    color: var(--success-color); 
+}
+
+.status-box.bloqueado { 
+    background: var(--danger-bg); 
+    color: var(--danger-color); 
+}
+
+/* BOTÕES PREMIUM */
+.acoes { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+}
+
+.btn-premium { 
+    display: flex; 
+    justify-content: space-between; 
+    padding: 12px 20px; 
+    border-radius: 8px; 
+    font-size: 14px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: 0.3s; 
+    width: 100%; 
+    border: none; 
+    background: transparent; 
+}
+
+.btn-premium.blue { 
+    border: 2px solid var(--valid-blue-btn); 
+    color: var(--valid-blue-btn); 
+}
+
+.btn-premium.blue:hover:not(:disabled) { 
+    background: var(--valid-blue-btn); 
+    color: white; 
+    transform: translateY(-2px); 
+}
+
+.btn-premium.blue:disabled { 
+    border-color: #eee; 
+    color: #ccc; 
+    cursor: not-allowed; 
+}
+
+.btn-premium.red { 
+    color: var(--danger-color); 
+}
+
+.btn-premium.red:hover { 
+    background: var(--danger-bg); 
+}
+
+.seta { 
+    transition: 0.3s; 
+}
+
+.btn-premium:hover:not(:disabled) .seta { 
+    transform: translateX(5px); 
+}
+
+/* MODAL */
+.modal-overlay { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.7); 
+    display: none; 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 100; 
+}
+
+.modal-content { 
+    background: white; 
+    padding: 40px; 
+    border-radius: 12px; 
+    width: 90%; 
+    max-width: 500px; 
+}
+
+.modal-header { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 20px; 
+}
+
+.modal-body label { 
+    display: block; 
+    font-size: 12px; 
+    font-weight: 700; 
+    margin-top: 15px; 
+    margin-bottom: 5px; 
+    text-transform: uppercase; 
+}
+
+.modal-body select, .modal-body textarea { 
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ddd; 
+    border-radius: 6px; 
+    margin-bottom: 15px; 
+}
+
+.close-btn { 
+    background: none; 
+    border: none; 
+    font-size: 28px; 
+    cursor: pointer; 
+}
+
+/* TELA DE LOGIN */
+
+.login-body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+.login-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+
+.login-card h2 { 
+    color: var(--valid-navy); 
+    margin-bottom: 10px; 
+    font-size: 24px;
+}
+
+.login-card p { 
+    color: var(--text-muted); 
+    font-size: 14px; 
+    margin-bottom: 30px; 
+}
+
+.input-group { 
+    text-align: left; 
+    margin-bottom: 30px; /* Joga o botão bem mais pra baixo, dando respiro */
+}
+
+.input-group label { 
+    display: block; 
+    font-size: 13px; 
+    font-weight: 700; 
+    color: var(--valid-navy); 
+    margin-bottom: 8px; /* Desgruda a palavra "Matrícula" da caixinha */
+    text-transform: uppercase; 
+}
+
+.input-group input { 
+    width: 100%; 
+    padding: 15px; /* Deixa a caixinha mais "gordinho" e confortável */
+    border: 2px solid #E9ECEF; 
+    border-radius: 8px; 
+    font-size: 16px; 
     color: var(--text-dark);
+    transition: all 0.3s ease;
 }
 
-/* NAVBAR TRANSLÚCIDA */
-.navbar {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    padding: 20px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    z-index: 10;
+/* O toque premium: quando você clica para digitar, a borda fica azul ciano */
+.input-group input:focus {
+    border-color: var(--valid-cyan);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 180, 216, 0.15);
 }
 
-.navbar .logo {
-    font-size: 28px;
-    font-weight: 700;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.btn-blue-pill {
-    background-color: var(--valid-blue);
-    color: white;
-    border: none;
-    padding: 10px 24px;
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-
-.hero {
-   
-    background-size: cover;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    padding: 0 60px;
-}
-
-.hero-content {
-    color: white;
-    max-width: 800px;
-}
-
-.hero-content h1 {
-    font-size: 48px;
-    font-weight: 600;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-
-.hero-content p {
-    font-size: 18px;
-    color: #e0e0e0;
-}
-
-/* SEÇÃO DE CARTÕES (Visual Limpo "Soluções") */
-.container {
-    padding: 80px 60px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-header {
-    margin-bottom: 60px;
-}
-
-.blue-line {
-    width: 40px;
-    height: 4px;
-    background-color: var(--valid-blue);
-    margin-bottom: 15px;
-}
-
-.section-header h2 {
-    font-size: 36px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.subtitle {
-    font-size: 18px;
-    color: var(--text-muted);
-}
-
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
-}
-
-.card {
-    background: transparent;
-    padding: 10px;
-}
-
-.icon-thin {
-    font-size: 40px;
-    color: var(--valid-blue);
-    margin-bottom: 20px;
-    font-weight: 300; /* Deixa o ícone bem fininho */
-}
-
-.card h4 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.card .desc {
+.btn-login { 
+    width: 100%; 
+    background: var(--valid-cyan); 
+    color: white; 
+    border: none; 
+    padding: 16px; /* Botão mais robusto */
+    border-radius: 30px; 
     font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.5;
-    margin-bottom: 20px;
+    font-weight: 700; 
+    cursor: pointer; 
+    transition: 0.3s; 
 }
 
-/* STATUS E LINKS */
-.status-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    font-weight: 500;
-    margin-bottom: 20px;
-    padding: 8px 0;
-}
-
-.status-box.liberado { color: #1E8E3E; }
-.status-box.bloqueado { color: var(--danger-color); }
-/* --- BOTÕES PREMIUM --- */
-.acoes {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.btn-premium {
-    display: flex;
-    justify-content: space-between; /* Joga a seta lá pro canto direito */
-    align-items: center;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    background: transparent;
-    transition: all 0.3s ease; /* Animação suave */
-    width: 100%;
-}
-
-.seta {
-    transition: transform 0.3s ease;
-    font-size: 18px;
-}
-
-/* Botão Padrão (Azul) */
-.btn-premium.blue {
-    border: 2px solid var(--valid-blue);
-    color: var(--valid-blue);
-}
-
-.btn-premium.blue:hover:not(:disabled) {
-    background-color: var(--valid-blue);
-    color: white;
-    box-shadow: 0 4px 15px rgba(26, 115, 232, 0.2);
-}
-
-.btn-premium.blue:disabled {
-    border: 2px solid #E9ECEF;
-    color: #ADB5BD;
-    cursor: not-allowed;
-}
-
-/* Botão de Exceção (Vermelho) */
-.btn-premium.red {
-    border: 2px solid transparent; /* Sem borda inicial pra não poluir */
-    color: var(--danger-color);
-}
-
-.btn-premium.red:hover {
-    background-color: var(--danger-bg);
-    border-color: rgba(217, 48, 37, 0.2);
-}
-
-
-.btn-premium:hover:not(:disabled) .seta {
-    transform: translateX(6px);
+.btn-login:hover { 
+    background: #0096B4; 
 }
