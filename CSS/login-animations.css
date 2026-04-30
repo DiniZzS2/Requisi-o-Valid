@@ -1,0 +1,272 @@
+/* ============================================================
+   VALID UNIFORMES — LOGIN ANIMATIONS
+   Adicione este bloco ao seu Style.css (ou importe separado)
+   ============================================================ */
+
+/* ---------- Reset básico ---------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------- Corpo da tela de login ---------- */
+.login-body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Sora', sans-serif;
+    background: linear-gradient(rgba(0, 27, 61, 0.3), rgba(0, 27, 61, 0.7)),
+                url('../IMG/VALID\ \(1\).png') center / cover no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ============================================================
+   ANIMAÇÃO 1 — Partículas flutuantes no fundo
+   Criadas via JS (no final do HTML); esta classe define o visual
+   ============================================================ */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: float linear infinite;
+}
+
+@keyframes float {
+    0%   { transform: translateY(0)      rotate(0deg);   opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { transform: translateY(-110vh) rotate(720deg); opacity: 0; }
+}
+
+/* ============================================================
+   ANIMAÇÃO 2 — Anéis girando no fundo
+   ============================================================ */
+.bg-rings {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.glow-ring {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    animation: spin 20s linear infinite;
+}
+
+/* Ponto luminoso que "orbita" o anel */
+.glow-ring::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(241, 241, 241, 0.9);
+    box-shadow: 0 0 14px 5px rgba(100, 180, 255, 0.35);
+}
+
+.glow-ring-2 {
+    width: 300px;
+    height: 300px;
+    animation-duration: 15s;
+    animation-direction: reverse; /* gira no sentido oposto */
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================================
+   ANIMAÇÃO 3 — Card desliza de baixo ao carregar
+   ============================================================ */
+.login-card {
+    position: relative;
+    z-index: 10;
+    width: 360px;
+    padding: 44px 40px;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px) scale(0.96); }
+    to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+/* ============================================================
+   Linha decorativa no topo do card — cresce de dentro pra fora
+   ============================================================ */
+.card-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+    border-radius: 2px;
+    animation: lineGrow 1s ease 0.6s forwards;
+}
+
+@keyframes lineGrow {
+    to { left: 15%; right: 15%; }
+}
+
+/* ============================================================
+   ANIMAÇÃO 4 — Área do logo (ícone + título) aparece de cima
+   ============================================================ */
+.logo-area {
+    text-align: center;
+    margin-bottom: 28px;
+    animation: fadeInDown 0.6s ease 0.3s both;
+}
+
+.logo-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 14px;
+    background: linear-gradient(135deg, #1a6bde, #3d9bff);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* ANIMAÇÃO 4b — pulsação contínua */
+    animation:
+        fadeInDown 0.6s ease 0.3s both,
+        pulse 3s ease-in-out 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0   rgba(61, 155, 255, 0.45); }
+    50%       { box-shadow: 0 0 0 14px rgba(61, 155, 255, 0); }
+}
+
+.logo-area h2 {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+}
+
+.logo-area p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* ============================================================
+   ANIMAÇÃO 5 — Entrada em cascata (campo e botão)
+   ============================================================ */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.input-group {
+    margin-bottom: 20px;
+    animation: fadeInDown 0.6s ease 0.5s both;
+}
+
+.input-group label {
+    display: block;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+/* ============================================================
+   ANIMAÇÃO 6 — Input brilha ao receber foco
+   ============================================================ */
+.input-group input {
+    width: 100%;
+    padding: 13px 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: 'Sora', sans-serif;
+    outline: none;
+
+    /* Transição suave em todas as propriedades visuais */
+    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.input-group input:focus {
+    border-color: rgba(61, 155, 255, 0.7);
+    background: rgba(61, 155, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(61, 155, 255, 0.15);
+}
+
+/* ============================================================
+   ANIMAÇÃO 7 — Botão com shimmer (reflexo de luz) no hover
+   ============================================================ */
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #1a6bde, #3d9bff);
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Sora', sans-serif;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    /* Sobe levemente no hover */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    animation: fadeInDown 0.6s ease 0.7s both;
+}
+
+/* Faixa de luz que passa no hover */
+.btn-login::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 50%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.18);
+    transform: skewX(-20deg);
+    transition: left 0.5s ease;
+}
+
+.btn-login:hover::after {
+    left: 130%; /* faixa cruza o botão */
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(26, 107, 222, 0.5);
+}
+
+.btn-login:active {
+    transform: translateY(0) scale(0.98);
+}
