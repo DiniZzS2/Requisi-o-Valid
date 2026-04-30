@@ -318,14 +318,13 @@ body {
 
 /* O toque premium: quando você clica para digitar, a borda fica azul ciano */
 .input-group input:focus {
-    border-color: var(--valid-cyan);
     outline: none;
     box-shadow: 0 0 0 4px rgba(0, 180, 216, 0.15);
 }
 
 .btn-login { 
     width: 100%; 
-    background: var(--valid-cyan); 
+    background: rgba(26, 63, 226, 0.7);
     color: white; 
     border: none; 
     padding: 16px; /* Botão mais robusto */
@@ -337,5 +336,5 @@ body {
 }
 
 .btn-login:hover { 
-    background: #0096B4; 
+    background: #000000; 
 }
