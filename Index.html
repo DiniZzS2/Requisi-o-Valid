@@ -1,119 +1,342 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valid | Portal de Uniformes</title>
-    <link rel="stylesheet" href="./CSS/Style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valid | Portal de Uniformes</title>
+<link rel="stylesheet" href="/CSS/Style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">Valid</div>
-        <div class="nav-links">
-            <span>Matrícula: <strong id="display-matricula">847291</strong></span>
-            <button id="btn-gestor" class="btn-blue-pill" style="display: none; background: #FF8C00;">Pendências Gestor</button>
-            <button class="btn-blue-pill" onclick="location.href='login.html'">Sair</button>
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-logo">Valid</div>
+  <div class="nav-right">
+    <span class="nav-matricula">Matrícula: <strong id="display-matricula">847291</strong></span>
+    <button id="btn-gestor" class="nav-btn accent" style="display:none">Pendências Gestor</button>
+    <button class="nav-btn" onclick="location.href='login.html'">Sair</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+
+  <div class="hero-content">
+    <h2>Gestão de <em>EPIs</em> e<br>Uniformes Valid</h2>
+    <p>Acompanhe suas cotas, atualize dados e faça solicitações com agilidade. Tudo num só lugar, de forma segura e rastreada.</p>
+    <div class="hero-actions">
+      <button class="btn-hero-primary" onclick="document.getElementById('section-uniformes').scrollIntoView({behavior:'smooth'})">
+        Ver meus uniformes
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </button>
+      <button class="btn-hero-secondary">
+        Histórico de pedidos
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="hero-stat-num">4</span>
+      <span class="hero-stat-label">Itens disponíveis</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat">
+      <span class="hero-stat-num" id="stat-cotas">—</span>
+      <span class="hero-stat-label">Cotas disponíveis</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">6–12</span>
+      <span class="hero-stat-label">Meses de renovação</span>
+    </div>
+  </div>
+
+  </div>
+</section>
+
+<!-- UNIFORMES -->
+<section class="section" id="section-uniformes">
+  <div class="section-intro">
+    <h2>Segurança e padronização no dia a dia</h2>
+    <p>Verifique o status de cada item, solicite sua cota padrão quando disponível ou abra uma exceção junto ao seu gestor.</p>
+  </div>
+
+  <div class="uniforms-grid">
+
+    <!-- Camiseta -->
+    <div class="uniform-card" id="card-camiseta">
+      <div class="card-header">
+        <div class="card-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.86H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.86l.58-3.57a2 2 0 00-1.34-2.23z"/></svg>
         </div>
-    </nav>
-
-   <header class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('./IMG/Imagem_ind.png') top center/cover;">
-        <div class="hero-content">
-            <h1>Gestão inteligente para o<br>seu dia a dia</h1>
-            <p>Portal exclusivo para requisição de uniformes e EPIs.<br>Acompanhe suas cotas e faça solicitações de forma rápida.</p>
-        </div>
-    </header>
-
-    <main class="container">
-        <div class="section-header">
-            <div class="blue-line"></div>
-            <h2>Meus Uniformes</h2>
-            <p class="subtitle">Elementos chaves para sua segurança e padronização</p>
-        </div>
-
-        <div class="cards-grid">
-            <div class="card" id="card-camiseta">
-                <span class="material-symbols-outlined icon-thin">apparel</span>
-                <h4>Camiseta Preta Valid</h4>
-                <p class="desc">Cota Padrão: 2 unidades<br>Renovação a cada 6 meses</p>
-                <div class="status-box" id="status-box-camiseta">
-                    <span class="material-symbols-outlined" id="icon-camiseta">pending</span>
-                    <p id="status-texto-camiseta">Calculando...</p>
-                </div>
-                <div class="acoes">
-                    <button class="btn-premium blue" id="btn-padrao-camiseta" disabled>Solicitar cota padrão <span class="seta">→</span></button>
-                    <button class="btn-premium red" onclick="abrirModal('Camiseta')">Abrir exceção <span class="seta">→</span></button>
-                </div>
-            </div>
-
-            <div class="card" id="card-calca">
-                <span class="material-symbols-outlined icon-thin">checkroom</span>
-                <h4>Calça Preta</h4>
-                <p class="desc">Cota Padrão: 2 unidades<br>Renovação a cada 6 meses</p>
-                <div class="status-box" id="status-box-calca">
-                    <span class="material-symbols-outlined" id="icon-calca">pending</span>
-                    <p id="status-texto-calca">Calculando...</p>
-                </div>
-                <div class="acoes">
-                    <button class="btn-premium blue" id="btn-padrao-calca" disabled>Solicitar cota padrão <span class="seta">→</span></button>
-                    <button class="btn-premium red" onclick="abrirModal('Calça')">Abrir exceção <span class="seta">→</span></button>
-                </div>
-            </div>
-
-            <div class="card" id="card-bota">
-                <span class="material-symbols-outlined icon-thin">construction</span>
-                <h4>Bota de Segurança</h4>
-                <p class="desc">Cota Padrão: 1 par<br>Renovação a cada 9 meses</p>
-                <div class="status-box" id="status-box-bota">
-                    <span class="material-symbols-outlined" id="icon-bota">pending</span>
-                    <p id="status-texto-bota">Calculando...</p>
-                </div>
-                <div class="acoes">
-                    <button class="btn-premium blue" id="btn-padrao-bota" disabled>Solicitar cota padrão <span class="seta">→</span></button>
-                    <button class="btn-premium red" onclick="abrirModal('Bota')">Abrir exceção <span class="seta">→</span></button>
-                </div>
-            </div>
-
-            <div class="card" id="card-moletom">
-                <span class="material-symbols-outlined icon-thin">severe_cold</span>
-                <h4>Moletom Valid</h4>
-                <p class="desc">Cota Padrão: 1 unidade<br>Renovação a cada 12 meses</p>
-                <div class="status-box" id="status-box-moletom">
-                    <span class="material-symbols-outlined" id="icon-moletom">pending</span>
-                    <p id="status-texto-moletom">Calculando...</p>
-                </div>
-                <div class="acoes">
-                    <button class="btn-premium blue" id="btn-padrao-moletom" disabled>Solicitar cota padrão <span class="seta">→</span></button>
-                    <button class="btn-premium red" onclick="abrirModal('Moletom')">Abrir exceção <span class="seta">→</span></button>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <div id="modalEmergencia" class="modal-overlay">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Justificativa de Emergência</h3>
-                <button onclick="fecharModal()" class="close-btn">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p id="modal-item-nome"></p>
-                <label>Motivo da Exceção</label>
-                <select id="motivoEmergencia">
-                    <option value="desgaste">Desgaste Excessivo / Estragou</option>
-                    <option value="rasgo">Rasgo Acidental</option>
-                    <option value="mancha">Mancha Irreversível</option>
-                    <option value="perda">Perda / Extravio</option>
-                </select>
-                <label>Descrição Detalhada</label>
-                <textarea id="justificativaTexto" placeholder="Descreva o ocorrido para o gestor..."></textarea>
-                <button class="btn-premium red" onclick="enviarEmergencia()">ENVIAR SOLICITAÇÃO <span class="seta">→</span></button>
-            </div>
-        </div>
+        <span class="card-badge loading" id="badge-camiseta">Verificando...</span>
+      </div>
+      <div class="card-title">Camiseta Preta Valid</div>
+      <div class="card-meta">Cota Padrão: 2 unidades<br>Renovação a cada 6 meses</div>
+      <div class="card-status loading" id="status-camiseta">
+        <span class="status-dot"></span>
+        <span id="status-txt-camiseta">Calculando disponibilidade...</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-request primary" id="btn-padrao-camiseta" disabled>
+          Solicitar cota padrão <span class="btn-arrow">→</span>
+        </button>
+        <button class="btn-request secondary" onclick="abrirModal('Camiseta')">
+          Abrir exceção <span class="btn-arrow">→</span>
+        </button>
+      </div>
     </div>
 
-    <script src="./JS/Script.js"></script>
+    <!-- Calça -->
+    <div class="uniform-card" id="card-calca">
+      <div class="card-header">
+        <div class="card-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M6 2l-2 20h5l3-10 3 10h5L18 2H6zM9 2l1 8M15 2l-1 8"/></svg>
+        </div>
+        <span class="card-badge loading" id="badge-calca">Verificando...</span>
+      </div>
+      <div class="card-title">Calça Preta</div>
+      <div class="card-meta">Cota Padrão: 2 unidades<br>Renovação a cada 6 meses</div>
+      <div class="card-status loading" id="status-calca">
+        <span class="status-dot"></span>
+        <span id="status-txt-calca">Calculando disponibilidade...</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-request primary" id="btn-padrao-calca" disabled>
+          Solicitar cota padrão <span class="btn-arrow">→</span>
+        </button>
+        <button class="btn-request secondary" onclick="abrirModal('Calça')">
+          Abrir exceção <span class="btn-arrow">→</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Bota -->
+    <div class="uniform-card" id="card-bota">
+      <div class="card-header">
+        <div class="card-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M2 18h10V9l-4-7H2v16zM12 18h10v-4l-4-3-1-5h-5v12z"/></svg>
+        </div>
+        <span class="card-badge loading" id="badge-bota">Verificando...</span>
+      </div>
+      <div class="card-title">Bota de Segurança</div>
+      <div class="card-meta">Cota Padrão: 1 par<br>Renovação a cada 9 meses</div>
+      <div class="card-status loading" id="status-bota">
+        <span class="status-dot"></span>
+        <span id="status-txt-bota">Calculando disponibilidade...</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-request primary" id="btn-padrao-bota" disabled>
+          Solicitar cota padrão <span class="btn-arrow">→</span>
+        </button>
+        <button class="btn-request secondary" onclick="abrirModal('Bota')">
+          Abrir exceção <span class="btn-arrow">→</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Moletom -->
+    <div class="uniform-card" id="card-moletom">
+      <div class="card-header">
+        <div class="card-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M3 7l4-3 5 3 5-3 4 3v4h-3v9H6v-9H3V7z"/><path d="M9 4c0 1.66 1.34 3 3 3s3-1.34 3-3"/></svg>
+        </div>
+        <span class="card-badge loading" id="badge-moletom">Verificando...</span>
+      </div>
+      <div class="card-title">Moletom Valid</div>
+      <div class="card-meta">Cota Padrão: 1 unidade<br>Renovação a cada 12 meses</div>
+      <div class="card-status loading" id="status-moletom">
+        <span class="status-dot"></span>
+        <span id="status-txt-moletom">Calculando disponibilidade...</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-request primary" id="btn-padrao-moletom" disabled>
+          Solicitar cota padrão <span class="btn-arrow">→</span>
+        </button>
+        <button class="btn-request secondary" onclick="abrirModal('Moletom')">
+          Abrir exceção <span class="btn-arrow">→</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<div class="info-strip">
+  <div class="info-strip-inner">
+    <div class="info-strip-text">
+      <h3>Precisa de ajuda com seu pedido?</h3>
+      <p>Em caso de dúvidas sobre cotas, exceções ou prazos de renovação, entre em contato com o setor de RH ou abra um chamado pelo portal interno.</p>
+    </div>
+    <div class="info-items">
+      <div class="info-item">
+        <span class="info-item-num">48h</span>
+        <span class="info-item-label">Prazo de aprovação</span>
+      </div>
+      <div class="info-item">
+        <span class="info-item-num">100%</span>
+        <span class="info-item-label">Digital</span>
+      </div>
+      <div class="info-item">
+        <span class="info-item-num">24/7</span>
+        <span class="info-item-label">Disponível</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">Valid</div>
+  <span class="footer-text">Portal de Uniformes e EPIs — Uso interno</span>
+  <span class="footer-text">© 2025 Valid S.A. Todos os direitos reservados.</span>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalEmergencia">
+  <div class="modal-box" style="position:relative">
+    <div class="modal-top">
+      <h3>Justificativa de Exceção</h3>
+      <p id="modal-item-nome">Item selecionado</p>
+      <button class="modal-close" onclick="fecharModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="field-group">
+        <label>Motivo da Exceção</label>
+        <select id="motivoEmergencia">
+          <option value="desgaste">Desgaste Excessivo / Estragou</option>
+          <option value="rasgo">Rasgo Acidental</option>
+          <option value="mancha">Mancha Irreversível</option>
+          <option value="perda">Perda / Extravio</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label>Descrição Detalhada</label>
+        <textarea id="justificativaTexto" placeholder="Descreva o ocorrido para análise do gestor..."></textarea>
+      </div>
+      <button class="btn-modal-submit" onclick="enviarEmergencia()">
+        Enviar solicitação →
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-icon">✓</div>
+  <span id="toast-msg">Solicitação enviada com sucesso.</span>
+</div>
+
+<script>
+/* ── NAVBAR SCROLL ── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* ── CARD REVEAL ON SCROLL ── */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 100);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.uniform-card').forEach(c => observer.observe(c));
+
+/* ── SIMULATE STATUS LOGIC ── */
+const items = [
+  { key: 'camiseta', meses: 6 },
+  { key: 'calca',    meses: 6 },
+  { key: 'bota',     meses: 9 },
+  { key: 'moletom',  meses: 12 },
+];
+
+let availableCount = 0;
+
+setTimeout(() => {
+  items.forEach((item, idx) => {
+    setTimeout(() => {
+      const disponivel = Math.random() > 0.4;
+      if (disponivel) availableCount++;
+
+      const badge  = document.getElementById(`badge-${item.key}`);
+      const status = document.getElementById(`status-${item.key}`);
+      const txt    = document.getElementById(`status-txt-${item.key}`);
+      const btn    = document.getElementById(`btn-padrao-${item.key}`);
+
+      badge.classList.remove('loading');
+      status.classList.remove('loading');
+
+      if (disponivel) {
+        badge.classList.add('available');
+        badge.textContent = 'Disponível';
+        status.classList.add('available');
+        txt.textContent = `Cota disponível — renovação após ${item.meses} meses`;
+        btn.disabled = false;
+      } else {
+        badge.classList.add('blocked');
+        badge.textContent = 'Indisponível';
+        status.classList.add('blocked');
+        const resto = Math.ceil(Math.random() * (item.meses - 1)) + 1;
+        txt.textContent = `Próxima renovação em ${resto} mês${resto > 1 ? 'es' : ''}`;
+        btn.disabled = true;
+      }
+
+      if (idx === items.length - 1) {
+        document.getElementById('stat-cotas').textContent = availableCount;
+      }
+    }, idx * 250 + 600);
+  });
+}, 400);
+
+/* ── MODAL ── */
+let itemAtual = '';
+
+function abrirModal(nome) {
+  itemAtual = nome;
+  document.getElementById('modal-item-nome').textContent = `Item: ${nome}`;
+  document.getElementById('justificativaTexto').value = '';
+  document.getElementById('modalEmergencia').classList.add('open');
+}
+
+function fecharModal() {
+  document.getElementById('modalEmergencia').classList.remove('open');
+}
+
+document.getElementById('modalEmergencia').addEventListener('click', function(e) {
+  if (e.target === this) fecharModal();
+});
+
+function enviarEmergencia() {
+  const texto = document.getElementById('justificativaTexto').value.trim();
+  if (!texto) {
+    document.getElementById('justificativaTexto').focus();
+    document.getElementById('justificativaTexto').style.borderColor = 'var(--danger)';
+    return;
+  }
+  fecharModal();
+  showToast(`Exceção para ${itemAtual} enviada ao gestor.`);
+}
+
+/* ── TOAST ── */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 4000);
+}
+</script>
 </body>
 </html>
