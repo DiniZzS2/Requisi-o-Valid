@@ -22,7 +22,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-      font-family: 'Poppins', sans-serif;  
+  font-family: 'Poppins', sans-serif;  
   background: rgb(24, 22, 22);
   color: var(--text);
   overflow-x: hidden;
@@ -314,7 +314,7 @@ body {
 /* ─── SECTION INTRO ─── */
 .quadradinho {
   background-image: linear-gradient(270deg, #004fcc .4%, #38ceff 93%);
-  width: 192px;
+  width: 100px;
   height: 4px;
 }
 
@@ -344,7 +344,7 @@ body {
 .section-intro h2 {
   font-family: 'Poppins', sans-serif;
   font-size: clamp(32px, 3.5vw, 48px);
-  width: 742px;
+  width: 490px;
   font-weight: 400;
   color: #1a6bde;
   letter-spacing: 1.5px;
@@ -514,14 +514,15 @@ body {
 }
 
 .btn-request.primary {
-  color: rgba(0, 0, 0, 0.925);
+  color: rgba(255, 255, 255, 0.925);
   border: 1px solid var(--border);
+  background-color: #1a6bde;;
 }
 
 .btn-request.primary:hover:not(:disabled) {
-  border-color: var(--navy-mid);
+  border-color: #043d8d;
   color: #ffffff;
-  background: var(--navy-mid);
+  background: #043d8d;
 }
 
 .btn-request.primary:disabled {
@@ -533,14 +534,15 @@ body {
 }
 
 .btn-request.secondary {
-  color: rgba(0, 0, 0, 0.925);
+  color: rgba(255, 255, 255, 0.925);
+  background-color: #1a6bde;
   border: 1px solid var(--border);
 }
 
 .btn-request.secondary:hover {
-  border-color: var(--navy-mid);
+  border-color: #043d8d;
   color: #ffffff;
-  background: var(--navy-mid);
+  background: #043d8d;
 }
 
 .btn-arrow {
@@ -552,7 +554,7 @@ body {
 
 /* ─── INFO STRIP ─── */
 .info-strip {
-  background: var(--navy);
+  background: rgb(255, 255, 255);
   padding: 80px 64px;
 }
 
@@ -564,17 +566,17 @@ body {
 }
 
 .info-strip-text h3 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 32px;
-  font-weight: 800;
-  color: var(--white);
+  font-weight: 400;
+  color: #1a6bde;
   letter-spacing: -1px;
   margin-bottom: 12px;
 }
 
 .info-strip-text p {
-  font-size: 15px;
-  color: rgba(255,255,255,0.5);
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.829);
   font-weight: 300;
   max-width: 480px;
   line-height: 1.7;
