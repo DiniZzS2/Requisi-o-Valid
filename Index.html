@@ -4,41 +4,37 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Valid | Portal de Uniformes</title>
-<link rel="stylesheet" href="./CSS/Style.css">
+<link rel="stylesheet" href="CSS/Style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+
+<script src="./JS/Script.js" defer></script>
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar" id="navbar">
   <div class="nav-logo">Valid</div>
   <div class="nav-right">
-    <span class="nav-matricula">Matrícula: <strong id="display-matricula">847291</strong></span>
+    <span class="nav-matricula">Matrícula: <strong id="display-matricula">---</strong></span>
     <button id="btn-gestor" class="nav-btn accent" style="display:none">Pendências Gestor</button>
-    <button class="nav-btn" onclick="location.href='login.html'">Sair</button>
+    <button class="nav-btn" id="btn-sair">Sair</button>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-glow-2"></div>
+  <div class="hero-bg-grid" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-glow-2" aria-hidden="true"></div>
 
   <div class="hero-content">
     <h2>Gestão de <em>EPIs</em> e<br>Uniformes Valid</h2>
     <p>Acompanhe suas cotas, atualize dados e faça solicitações com agilidade. Tudo num só lugar, de forma segura e rastreada.</p>
     <div class="hero-actions">
-      <button class="btn-hero-primary" onclick="document.getElementById('section-uniformes').scrollIntoView({behavior:'smooth'})">
+      <button class="btn-hero-primary" id="btn-scroll-uniformes">
         Ver meus uniformes
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-      </button>
-      <button class="btn-hero-secondary">
-        Histórico de pedidos
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
     </div>
   </div>
@@ -53,28 +49,18 @@
       <span class="hero-stat-num" id="stat-cotas">—</span>
       <span class="hero-stat-label">Cotas disponíveis</span>
     </div>
-    <div class="hero-divider"></div>
-    <div class="hero-stat">
-      <span class="hero-stat-num">6–12</span>
-      <span class="hero-stat-label">Meses de renovação</span>
-    </div>
-  </div>
-
   </div>
 </section>
 
-<!-- UNIFORMES -->
 <section class="section" id="section-uniformes">
   <div class="quadradinho" data-uwid="365"></div>
-</br>
+  <br>
   <div class="section-intro">
     <h2>Segurança e padronização no dia a dia</h2>
     <p>Verifique o status de cada item, solicite sua cota padrão quando disponível ou abra uma exceção junto ao seu gestor.</p>
   </div>
 
   <div class="uniforms-grid">
-
-    <!-- Camiseta -->
     <div class="uniform-card" id="card-camiseta">
       <div class="card-header">
         <div class="card-icon-wrap">
@@ -92,13 +78,12 @@
         <button class="btn-request primary" id="btn-padrao-camiseta" disabled>
           Solicitar cota padrão <span class="btn-arrow">→</span>
         </button>
-        <button class="btn-request secondary" onclick="abrirModal('Camiseta')">
+        <button class="btn-request secondary" data-item="Camiseta Preta Valid">
           Abrir exceção <span class="btn-arrow">→</span>
         </button>
       </div>
     </div>
 
-    <!-- Calça -->
     <div class="uniform-card" id="card-calca">
       <div class="card-header">
         <div class="card-icon-wrap">
@@ -116,13 +101,12 @@
         <button class="btn-request primary" id="btn-padrao-calca" disabled>
           Solicitar cota padrão <span class="btn-arrow">→</span>
         </button>
-        <button class="btn-request secondary" onclick="abrirModal('Calça')">
+        <button class="btn-request secondary" data-item="Calça Preta">
           Abrir exceção <span class="btn-arrow">→</span>
         </button>
       </div>
     </div>
 
-    <!-- Bota -->
     <div class="uniform-card" id="card-bota">
       <div class="card-header">
         <div class="card-icon-wrap">
@@ -140,13 +124,12 @@
         <button class="btn-request primary" id="btn-padrao-bota" disabled>
           Solicitar cota padrão <span class="btn-arrow">→</span>
         </button>
-        <button class="btn-request secondary" onclick="abrirModal('Bota')">
+        <button class="btn-request secondary" data-item="Bota de Segurança">
           Abrir exceção <span class="btn-arrow">→</span>
         </button>
       </div>
     </div>
 
-    <!-- Moletom -->
     <div class="uniform-card" id="card-moletom">
       <div class="card-header">
         <div class="card-icon-wrap">
@@ -164,16 +147,45 @@
         <button class="btn-request primary" id="btn-padrao-moletom" disabled>
           Solicitar cota padrão <span class="btn-arrow">→</span>
         </button>
-        <button class="btn-request secondary" onclick="abrirModal('Moletom')">
+        <button class="btn-request secondary" data-item="Moletom Valid">
           Abrir exceção <span class="btn-arrow">→</span>
         </button>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- INFO STRIP -->
+<div class="modal-overlay" id="modalEmergencia">
+  <div class="modal-box" style="position:relative">
+    <div class="modal-top">
+      <h3>Justificativa de Exceção</h3>
+      <p id="modal-item-nome">Item selecionado</p>
+      <button class="modal-close" id="btn-close-modal" aria-label="Fechar modal">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="field-group">
+        <label for="motivoEmergencia">Motivo da Exceção</label>
+        <select id="motivoEmergencia">
+          <option value="desgaste">Desgaste Excessivo / Estragou</option>
+          <option value="rasgo">Rasgo Acidental</option>
+          <option value="mancha">Mancha Irreversível</option>
+          <option value="perda">Perda / Extravio</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label for="justificativaTexto">Descrição Detalhada</label>
+        <textarea id="justificativaTexto" placeholder="Descreva o ocorrido para análise do gestor..."></textarea>
+      </div>
+      <button class="btn-modal-submit">Enviar solicitação →</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">
+  <div class="toast-icon">✓</div>
+  <span id="toast-msg">Mensagem padrão.</span>
+</div>
+
 <div class="info-strip">
   <div class="info-strip-inner">
     <div class="info-strip-text">
@@ -197,148 +209,11 @@
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-logo">Valid</div>
   <span class="footer-text">Portal de Uniformes e EPIs — Uso interno</span>
   <span class="footer-text">© 2025 Valid S.A. Todos os direitos reservados.</span>
 </footer>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modalEmergencia">
-  <div class="modal-box" style="position:relative">
-    <div class="modal-top">
-      <h3>Justificativa de Exceção</h3>
-      <p id="modal-item-nome">Item selecionado</p>
-      <button class="modal-close" onclick="fecharModal()">×</button>
-    </div>
-    <div class="modal-body">
-      <div class="field-group">
-        <label>Motivo da Exceção</label>
-        <select id="motivoEmergencia">
-          <option value="desgaste">Desgaste Excessivo / Estragou</option>
-          <option value="rasgo">Rasgo Acidental</option>
-          <option value="mancha">Mancha Irreversível</option>
-          <option value="perda">Perda / Extravio</option>
-        </select>
-      </div>
-      <div class="field-group">
-        <label>Descrição Detalhada</label>
-        <textarea id="justificativaTexto" placeholder="Descreva o ocorrido para análise do gestor..."></textarea>
-      </div>
-      <button class="btn-modal-submit" onclick="enviarEmergencia()">
-        Enviar solicitação →
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- TOAST -->
-<div class="toast" id="toast">
-  <div class="toast-icon">✓</div>
-  <span id="toast-msg">Solicitação enviada com sucesso.</span>
-</div>
-
-<script>
-/* ── NAVBAR SCROLL ── */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
-});
-
-/* ── CARD REVEAL ON SCROLL ── */
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 100);
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.uniform-card').forEach(c => observer.observe(c));
-
-/* ── SIMULATE STATUS LOGIC ── */
-const items = [
-  { key: 'camiseta', meses: 6 },
-  { key: 'calca',    meses: 6 },
-  { key: 'bota',     meses: 9 },
-  { key: 'moletom',  meses: 12 },
-];
-
-let availableCount = 0;
-
-setTimeout(() => {
-  items.forEach((item, idx) => {
-    setTimeout(() => {
-      const disponivel = Math.random() > 0.4;
-      if (disponivel) availableCount++;
-
-      const badge  = document.getElementById(`badge-${item.key}`);
-      const status = document.getElementById(`status-${item.key}`);
-      const txt    = document.getElementById(`status-txt-${item.key}`);
-      const btn    = document.getElementById(`btn-padrao-${item.key}`);
-
-      badge.classList.remove('loading');
-      status.classList.remove('loading');
-
-      if (disponivel) {
-        badge.classList.add('available');
-        badge.textContent = 'Disponível';
-        status.classList.add('available');
-        txt.textContent = `Cota disponível — renovação após ${item.meses} meses`;
-        btn.disabled = false;
-      } else {
-        badge.classList.add('blocked');
-        badge.textContent = 'Indisponível';
-        status.classList.add('blocked');
-        const resto = Math.ceil(Math.random() * (item.meses - 1)) + 1;
-        txt.textContent = `Próxima renovação em ${resto} mês${resto > 1 ? 'es' : ''}`;
-        btn.disabled = true;
-      }
-
-      if (idx === items.length - 1) {
-        document.getElementById('stat-cotas').textContent = availableCount;
-      }
-    }, idx * 250 + 600);
-  });
-}, 400);
-
-/* ── MODAL ── */
-let itemAtual = '';
-
-function abrirModal(nome) {
-  itemAtual = nome;
-  document.getElementById('modal-item-nome').textContent = `Item: ${nome}`;
-  document.getElementById('justificativaTexto').value = '';
-  document.getElementById('modalEmergencia').classList.add('open');
-}
-
-function fecharModal() {
-  document.getElementById('modalEmergencia').classList.remove('open');
-}
-
-document.getElementById('modalEmergencia').addEventListener('click', function(e) {
-  if (e.target === this) fecharModal();
-});
-
-function enviarEmergencia() {
-  const texto = document.getElementById('justificativaTexto').value.trim();
-  if (!texto) {
-    document.getElementById('justificativaTexto').focus();
-    document.getElementById('justificativaTexto').style.borderColor = 'var(--danger)';
-    return;
-  }
-  fecharModal();
-  showToast(`Exceção para ${itemAtual} enviada ao gestor.`);
-}
-
-/* ── TOAST ── */
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  document.getElementById('toast-msg').textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 4000);
-}
-</script>
 </body>
 </html>

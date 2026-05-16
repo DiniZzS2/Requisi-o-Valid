@@ -92,15 +92,15 @@ body {
 }
 
 .nav-btn.accent {
-  background: var(--cyan);
+  background: #1a6bde;
   border-color: var(--cyan);
-  color: var(--navy);
+  color: var(--white);
   font-weight: 600;
 }
 
 .nav-btn.accent:hover {
-  background: var(--cyan-light);
-  border-color: var(--cyan-light);
+  background: #043d8d;
+  border-color: #043d8d;;
 }
 
 /* ─── HERO ─── */
@@ -306,8 +306,8 @@ body {
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translate3d(0, 24px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
 }
 
 
@@ -371,19 +371,20 @@ body {
 }
 
 .uniform-card {
-  background: #2d3035;
-  padding: 48px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  transition: var(--transition);
-  opacity: 0;
-  transform: translateY(20px);
+    background: #2d3035;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: var(--transition);
+    opacity: 0;
+    transform: translate3d(0, 20px, 0); /* Trocado de translateY */
+    will-change: transform, opacity; /* ADDED */
 }
 
 .uniform-card.visible {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translate3d(0, 0, 0); /* Trocado de translateY */
 }
 
 

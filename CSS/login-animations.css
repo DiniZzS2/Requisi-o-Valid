@@ -32,13 +32,14 @@
     border-radius: 50%;
     pointer-events: none;
     animation: float linear infinite;
+    will-change: transform, opacity;
 }
 
 @keyframes float {
-    0%   { transform: translateY(0)      rotate(0deg);   opacity: 0; }
+    0%   { transform: translate3d(0, 0, 0)       rotate(0deg);   opacity: 0; }
     10%  { opacity: 1; }
     90%  { opacity: 1; }
-    100% { transform: translateY(-110vh) rotate(720deg); opacity: 0; }
+    100% { transform: translate3d(0, -110vh, 0)  rotate(720deg); opacity: 0; }
 }
 
 /* ============================================================
@@ -104,8 +105,8 @@
 }
 
 @keyframes slideUp {
-    from { opacity: 0; transform: translateY(40px) scale(0.96); }
-    to   { opacity: 1; transform: translateY(0)    scale(1); }
+    from { opacity: 0; transform: translate3d(0, 40px, 0) scale(0.96); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0)    scale(1); }
 }
 
 /* ============================================================
@@ -173,8 +174,8 @@
    ANIMAÇÃO 5 — Entrada em cascata (campo e botão)
    ============================================================ */
 @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-14px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translate3d(0, -14px, 0); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0); }
 }
 
 .input-group {

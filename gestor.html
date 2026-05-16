@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Gestor | Valid Uniformes</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./CSS/Style.css">
+    <link rel="stylesheet" href="./CSS/tela_gestor.css">
+    
+    <script src="./JS/Script.js" defer></script>
+</head>
+<body class="gestor-body">
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-logo">
+            Valid <span style="font-size: 14px; font-weight: 300; color: #ffff; margin-left: 8px;">| Gestão de Exceções</span>
+        </div>
+        <div class="nav-right">
+            <span class="nav-matricula">Gestor: <strong id="display-matricula">---</strong></span>
+            <button class="nav-btn accent" onclick="location.href='index.html'">Voltar ao Início</button>
+            
+        </div>
+    </nav>
+
+    <main class="section gestor-main">
+        <div class="quadradinho" data-uwid="365"></div>
+        <br>
+        <div class="section-intro">
+            <h2>Aprovações Pendentes</h2>
+            <p>Analise as solicitações de exceção abertas pela sua equipe. Pedidos aprovados liberam imediatamente a cota do colaborador no sistema.</p>
+        </div>
+
+        <div class="uniforms-grid" id="lista-pendencias"></div>
+    </main>
+
+    <div class="toast" id="toast">
+        <div class="toast-icon">✓</div>
+        <span id="toast-msg">Ação realizada.</span>
+    </div>
+
+</body>
+</html>

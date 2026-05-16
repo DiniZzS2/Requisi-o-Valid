@@ -4,61 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Valid Uniformes</title>
-    <link rel="stylesheet" href="./CSS/login-animations.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./CSS/login-animations.css">
+    
+    <script src="./JS/Script.js" defer></script>
 </head>
 <body class="login-body">
 
-    <div class="bg-rings">
+    <div class="bg-rings" aria-hidden="true">
         <div class="glow-ring"></div>
         <div class="glow-ring glow-ring-2"></div>
     </div>
 
-    <div class="login-card">
+    <main class="login-card">
         <div class="card-line"></div>
 
-        <div class="logo-area">
+        <header class="logo-area">
             <div class="logo-icon">
-                <!-- Substitua pelo logo da Valid Uniformes se quiser -->
-                <svg viewBox="0 0 24 24" fill="white" width="28" height="28">
+                <svg viewBox="0 0 24 24" fill="white" width="28" height="28" aria-label="Logo Valid">
                     <path d="M12 2L2 7l10 5 10-5-10-5zm0 7L2 9v6l10 5 10-5V9l-10 5z"/>
                 </svg>
             </div>
             <h2>Acesso ao Portal</h2>
-            <p>Digite sua matrícula para continuar</p>
-        </div>
+            <p>Digite sua matrícula e senha para continuar</p>
+        </header>
 
-        <div class="input-group">
-            <label for="matricula">Matrícula</label>
-            <input type="text" id="matricula" placeholder="Ex: 847291">
-        </div>
+        <form class="input-group" id="form-login">
+            
+            <div style="margin-bottom: 20px;">
+                <label for="matricula">Matrícula</label>
+                <input type="text" id="matricula" placeholder="Ex: 847291" autocomplete="username">
+            </div>
+            
+            <div style="margin-bottom: 24px;">
+                <label for="senha">Senha de Acesso</label>
+                <input type="password" id="senha" placeholder="••••••••" autocomplete="current-password">
+            </div>
 
-        <button class="btn-login" onclick="fazerLogin()">Entrar no sistema</button>
-    </div>
+            <button type="submit" class="btn-login" id="btn-entrar">Entrar no sistema</button>
+            
+        </form>
+    </main>
 
-    <script src="./JS/Script.js"></script>
-
-    <script>
-        /* Gera partículas flutuantes dinamicamente */
-        const body = document.querySelector('.login-body');
-        const colors = [
-            'rgba(255,255,255,0.04)',
-            'rgba(61,155,255,0.06)',
-            'rgba(100,200,255,0.04)'
-        ];
-        for (let i = 0; i < 14; i++) {
-            const p = document.createElement('div');
-            p.className = 'particle';
-            const size = Math.random() * 50 + 10;
-            p.style.width  = size + 'px';
-            p.style.height = size + 'px';
-            p.style.left   = Math.random() * 100 + '%';
-            p.style.bottom = (Math.random() * -20) + '%';
-            p.style.background = colors[Math.floor(Math.random() * colors.length)];
-            p.style.animationDuration = (Math.random() * 12 + 8) + 's';
-            p.style.animationDelay   = (Math.random() * 8) + 's';
-            body.appendChild(p);
-        }
-    </script>
 </body>
 </html>
