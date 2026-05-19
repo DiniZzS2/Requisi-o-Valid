@@ -154,11 +154,11 @@ const DashboardModule = {
         if (btnGestor) {
             if (AppState.papelUsuario === 'gestor') {
                 btnGestor.style.display = 'inline-block';
-                btnGestor.textContent = "⏳ Painel Gestor";
+                btnGestor.textContent = "Painel Gestor";
                 btnGestor.onclick = () => window.location.href = 'gestor.html';
             } else if (AppState.papelUsuario === 'almoxarifado') {
                 btnGestor.style.display = 'inline-block';
-                btnGestor.textContent = "⚙️ Painel Almoxarifado";
+                btnGestor.textContent = " Painel Almoxarifado";
                 btnGestor.onclick = () => window.location.href = 'almoxarifado.html';
             }
         }
