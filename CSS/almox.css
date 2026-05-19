@@ -1,0 +1,184 @@
+/*Quando a fila do Almoxarifado está limpa */
+.empty-state-gestor {
+    grid-column: 1 / -1; 
+    background: var(--off-white);
+    border: 1px dashed rgba(0, 27, 61, 0.2);
+    border-radius: 20px;
+    padding: 80px 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.empty-state-gestor svg {
+    width: 64px;          /* Trava o tamanho do ícone */
+    height: 64px;
+    stroke: var(--success); /* Pinta a linha de verde */
+    fill: none;           /* Tira o buraco negro preenchido */
+    stroke-width: 1.5;
+    margin-bottom: 8px;
+}
+
+.empty-state-gestor h3 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--navy);
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.empty-state-gestor p {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 400px;
+}
+
+
+.almox-body {
+    background-color: #ffffff;
+}
+
+.almox-main {
+    padding-top: 140px; 
+    min-height: 100vh;
+}
+
+/* Grupo esquerdo da Navbar */
+.nav-left-group {
+    display: flex; 
+    align-items: center; 
+    gap: 16px;
+}
+
+.nav-sublogo {
+    font-size: 14px; 
+    font-weight: 300; 
+    color: #ffffff; 
+    margin-left: 8px;
+}
+
+/* Botão do Menu Hambúrguer */
+.nav-hamburguer-btn {
+    background: transparent; 
+    border: none; 
+    padding: 4px; 
+    cursor: pointer; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 5px;
+}
+
+.hamburguer-line {
+    width: 24px; 
+    height: 2px; 
+    background: #ffffff; 
+    display: block; 
+    border-radius: 2px;
+}
+
+/* Sidebar Drawer Overlay (Cortina de fundo) */
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 27, 61, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 999;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: stretch; 
+    opacity: 0; 
+    pointer-events: none; 
+    transition: opacity 0.3s ease;
+}
+
+/* Container da Gaveta Lateral */
+.sidebar-container {
+    width: 280px; 
+    background: #1a1d21; 
+    padding: 40px 24px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 32px; 
+    transform: translate3d(-100%, 0, 0); 
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 6px 0 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Elementos Internos da Sidebar */
+.sidebar-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.sidebar-title {
+    color: #ffffff; 
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 600; 
+    font-size: 20px;
+    letter-spacing: -0.5px;
+}
+
+.sidebar-close-btn {
+    background: transparent; 
+    border: none; 
+    color: rgba(255, 255, 255, 0.4); 
+    font-size: 24px; 
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.sidebar-close-btn:hover {
+    color: #ffffff;
+}
+
+.sidebar-links {
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    flex: 1;
+}
+
+/* Botões de Link da Sidebar */
+.sidebar-link-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 14px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left; 
+    width: 100%;
+}
+
+.sidebar-link-btn:hover {
+    background: rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+}
+
+.sidebar-link-btn.active {
+    background: rgba(0, 180, 216, 0.1);
+    border-color: rgba(0, 180, 216, 0.25);
+    color: var(--cyan);
+    font-weight: 600;
+}
+
+/* Logout Customizado */
+.almox-logout-btn {
+    width: 100%; 
+    justify-content: center; 
+    border-color: rgba(255, 107, 107, 0.4); 
+    color: #ff6b6b;
+    background: transparent;
+}
+
+.almox-logout-btn:hover {
+    background: rgba(255, 107, 107, 0.1);
+    border-color: #ff6b6b;
+}

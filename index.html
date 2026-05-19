@@ -8,21 +8,40 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-
 <script src="./JS/Script.js" defer></script>
 </head>
 <body>
 
+<!-- NAVBAR GLOBAL -->
 <nav class="navbar" id="navbar">
-  <div class="nav-logo">Valid</div>
+  <div class="nav-left-group">
+    <button class="nav-hamburguer-btn" id="btn-menu-hamburguer" aria-label="Abrir menu">
+        <span class="hamburguer-line"></span>
+        <span class="hamburguer-line"></span>
+        <span class="hamburguer-line"></span>
+    </button>
+    <div class="nav-logo">Valid</div>
+  </div>
   <div class="nav-right">
     <span class="nav-matricula">Matrícula: <strong id="display-matricula">---</strong></span>
-    <button id="btn-gestor" class="nav-btn accent" style="display:none">Pendências Gestor</button>
+    <button class="nav-btn accent" id="btn-gestor" style="display: none; margin-right: 10px;">Painel</button>
     <button class="nav-btn" id="btn-sair">Sair</button>
   </div>
 </nav>
 
+<!-- SIDEBAR MENU -->
+<div class="sidebar-overlay" id="sidebar-menu">
+    <div class="sidebar-container" id="sidebar-content">
+        <div class="sidebar-header">
+            <span class="sidebar-title">Menu Portal</span>
+            <button id="btn-fechar-menu" class="sidebar-close-btn">&times;</button>
+        </div>
+        <div class="sidebar-links" id="sidebar-links-inject"></div>
+        <button class="nav-btn sidebar-logout-btn" id="btn-sidebar-logout">Sair do Portal</button>
+    </div>
+</div>
+
+<!-- HERO SECTION (O que faltou na versão anterior) -->
 <section class="hero">
   <div class="hero-bg-grid" aria-hidden="true"></div>
   <div class="hero-glow" aria-hidden="true"></div>
@@ -52,6 +71,7 @@
   </div>
 </section>
 
+<!-- SESSÃO DE UNIFORMES -->
 <section class="section" id="section-uniformes">
   <div class="quadradinho" data-uwid="365"></div>
   <br>
@@ -61,6 +81,7 @@
   </div>
 
   <div class="uniforms-grid">
+    <!-- Camiseta -->
     <div class="uniform-card" id="card-camiseta">
       <div class="card-header">
         <div class="card-icon-wrap">
@@ -75,15 +96,12 @@
         <span id="status-txt-camiseta">Calculando disponibilidade...</span>
       </div>
       <div class="card-actions">
-        <button class="btn-request primary" id="btn-padrao-camiseta" disabled>
-          Solicitar cota padrão <span class="btn-arrow">→</span>
-        </button>
-        <button class="btn-request secondary" data-item="Camiseta Preta Valid">
-          Abrir exceção <span class="btn-arrow">→</span>
-        </button>
+        <button class="btn-request primary" id="btn-padrao-camiseta" disabled>Solicitar cota padrão <span class="btn-arrow">→</span></button>
+        <button class="btn-request secondary" data-item="Camiseta Preta Valid">Abrir exceção <span class="btn-arrow">→</span></button>
       </div>
     </div>
 
+    <!-- Calça -->
     <div class="uniform-card" id="card-calca">
       <div class="card-header">
         <div class="card-icon-wrap">
@@ -98,15 +116,12 @@
         <span id="status-txt-calca">Calculando disponibilidade...</span>
       </div>
       <div class="card-actions">
-        <button class="btn-request primary" id="btn-padrao-calca" disabled>
-          Solicitar cota padrão <span class="btn-arrow">→</span>
-        </button>
-        <button class="btn-request secondary" data-item="Calça Preta">
-          Abrir exceção <span class="btn-arrow">→</span>
-        </button>
+        <button class="btn-request primary" id="btn-padrao-calca" disabled>Solicitar cota padrão <span class="btn-arrow">→</span></button>
+        <button class="btn-request secondary" data-item="Calça Preta">Abrir exceção <span class="btn-arrow">→</span></button>
       </div>
     </div>
 
+    <!-- Bota -->
     <div class="uniform-card" id="card-bota">
       <div class="card-header">
         <div class="card-icon-wrap">
@@ -121,15 +136,12 @@
         <span id="status-txt-bota">Calculando disponibilidade...</span>
       </div>
       <div class="card-actions">
-        <button class="btn-request primary" id="btn-padrao-bota" disabled>
-          Solicitar cota padrão <span class="btn-arrow">→</span>
-        </button>
-        <button class="btn-request secondary" data-item="Bota de Segurança">
-          Abrir exceção <span class="btn-arrow">→</span>
-        </button>
+        <button class="btn-request primary" id="btn-padrao-bota" disabled>Solicitar cota padrão <span class="btn-arrow">→</span></button>
+        <button class="btn-request secondary" data-item="Bota de Segurança">Abrir exceção <span class="btn-arrow">→</span></button>
       </div>
     </div>
 
+    <!-- Moletom -->
     <div class="uniform-card" id="card-moletom">
       <div class="card-header">
         <div class="card-icon-wrap">
@@ -144,23 +156,45 @@
         <span id="status-txt-moletom">Calculando disponibilidade...</span>
       </div>
       <div class="card-actions">
-        <button class="btn-request primary" id="btn-padrao-moletom" disabled>
-          Solicitar cota padrão <span class="btn-arrow">→</span>
-        </button>
-        <button class="btn-request secondary" data-item="Moletom Valid">
-          Abrir exceção <span class="btn-arrow">→</span>
-        </button>
+        <button class="btn-request primary" id="btn-padrao-moletom" disabled>Solicitar cota padrão <span class="btn-arrow">→</span></button>
+        <button class="btn-request secondary" data-item="Moletom Valid">Abrir exceção <span class="btn-arrow">→</span></button>
       </div>
     </div>
   </div>
 </section>
 
+<!-- MODAIS COM IDS ISOLADOS E ESTRUTURA CORRETA -->
+
+<!-- 1. MODAL DE COTA PADRÃO -->
+<div class="modal-overlay" id="modalConfirmacaoCota">
+  <div class="modal-box">
+    <div class="modal-top">
+      <h3>Confirmar Solicitação</h3>
+      <p id="confirm-item-nome">Item Selecionado</p>
+      <button class="modal-close" id="btn-close-confirm">×</button>
+    </div>
+    <div class="modal-body">
+      <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px; font-size: 14px;">
+        Você está prestes a solicitar sua cota padrão rastreada. Selecione a quantidade desejada abaixo:
+      </p>
+      <div class="field-group">
+        <label for="confirm-quantidade">Quantidade Solicitada</label>
+        <select id="confirm-quantidade"></select>
+      </div>
+      <button class="btn-modal-submit" id="btn-enviar-confirmacao-cota" style="background-color: var(--success); border-color: var(--success);">
+        Confirmar e Enviar ao Almoxarifado →
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 2. MODAL DE EXCEÇÃO -->
 <div class="modal-overlay" id="modalEmergencia">
-  <div class="modal-box" style="position:relative">
+  <div class="modal-box">
     <div class="modal-top">
       <h3>Justificativa de Exceção</h3>
       <p id="modal-item-nome">Item selecionado</p>
-      <button class="modal-close" id="btn-close-modal" aria-label="Fechar modal">×</button>
+      <button class="modal-close" id="btn-close-excecao">×</button>
     </div>
     <div class="modal-body">
       <div class="field-group">
@@ -176,7 +210,7 @@
         <label for="justificativaTexto">Descrição Detalhada</label>
         <textarea id="justificativaTexto" placeholder="Descreva o ocorrido para análise do gestor..."></textarea>
       </div>
-      <button class="btn-modal-submit">Enviar solicitação →</button>
+      <button class="btn-modal-submit" id="btn-enviar-excecao">Enviar solicitação →</button>
     </div>
   </div>
 </div>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almoxarifado | Valid Uniformes</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./CSS/Style.css">
+    <link rel="stylesheet" href="CSS/almox.css">
+    
+    <script src="./JS/Script.js" defer></script>
+</head>
+<body class="almox-body">
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-left-group">
+            <button class="nav-hamburguer-btn" id="btn-menu-hamburguer" aria-label="Abrir menu lateral">
+                <span class="hamburguer-line"></span>
+                <span class="hamburguer-line"></span>
+                <span class="hamburguer-line"></span>
+            </button>
+            <div class="nav-logo">Valid <span class="nav-sublogo">| Almoxarifado</span></div>
+        </div>
+        <div class="nav-right">
+            <span class="nav-matricula">Operador: <strong id="display-matricula">---</strong></span>
+        </div>
+    </nav>
+
+    <div class="sidebar-overlay" id="sidebar-menu">
+        <div class="sidebar-container" id="sidebar-content">
+            <div class="sidebar-header">
+                <span class="sidebar-title">Menu</span>
+                <button id="btn-fechar-menu" class="sidebar-close-btn">&times;</button>
+            </div>
+            
+            <div class="sidebar-links">
+                <button class="sidebar-link-btn active" onclick="location.reload()">Requisições Pendentes</button>
+                <button class="sidebar-link-btn" onclick="alert('Abrindo tela do Figma: Dashboard de Consumo e KPIs')">Dashboard de Consumo</button>
+                <button class="sidebar-link-btn" onclick="window.location.href='index.html'">Página Inicial</button>
+            </div>
+
+            <button class="nav-btn almox-logout-btn" id="btn-sair">Sair do Portal</button>
+        </div>
+    </div>
+
+    <main class="section almox-main">
+        <div class="quadradinho" data-uwid="365"></div>
+        <br>
+        <div class="section-intro">
+            <h2>Fila de Distribuição de Uniformes</h2>
+            <p>Monitore e dê baixa nos fardamentos liberados para a produção. Confirme a entrega em mãos para atualizar o inventário do colaborador.</p>
+        </div>
+
+        <div class="uniforms-grid" id="lista-almoxarifado"></div>
+    </main>
+
+    <div class="toast" id="toast">
+        <div class="toast-icon">✓</div>
+        <span id="toast-msg">Ação realizada.</span>
+    </div>
+
+</body>
+</html>
