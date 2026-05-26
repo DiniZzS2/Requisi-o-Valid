@@ -1,0 +1,184 @@
+/* ============================================================
+   ESTÉTICA FIGMA - DASHBOARD FLUIDO
+   ============================================================ */
+.dash-body {
+    background-color: #f4f7f8; /* Fundo cinza clarinho do Figma */
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.dashboard-wrapper {
+    max-width: 1500px; /* Largura gigante para tirar o espaço branco */
+    width: 94%;
+    margin: 100px auto 40px; /* Espaço para a navbar em cima */
+}
+
+/* Header do Dashboard */
+.dash-header {
+    margin-bottom: 32px;
+}
+
+.dash-header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--navy);
+    margin: 0 0 4px 0;
+    letter-spacing: -1px;
+}
+
+.dash-header p {
+    font-size: 15px;
+    color: #627d98;
+    margin: 0;
+}
+
+/* Grid dos Cards Superiores */
+.kpi-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.kpi-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    border-left: 4px solid #ccc; /* Padrão, sobrescrito abaixo */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Bordinhas coloridas laterais do Figma */
+.left-border-cyan { border-left-color: var(--cyan); }
+.left-border-blue { border-left-color: #2980B9; }
+.left-border-navy { border-left-color: var(--navy); }
+.left-border-green { border-left-color: var(--success); }
+
+.kpi-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.kpi-card h3 {
+    font-size: 13px;
+    font-weight: 500;
+    color: #627d98;
+    margin: 0;
+}
+
+/* Ícones com fundo suave */
+.kpi-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.kpi-icon svg { width: 18px; height: 18px; }
+
+.bg-cyan-light { background: rgba(0, 180, 216, 0.1); }
+.bg-blue-light { background: rgba(41, 128, 185, 0.1); }
+.bg-navy-light { background: rgba(0, 27, 61, 0.1); }
+.bg-green-light { background: rgba(40, 199, 111, 0.1); }
+
+/* Valores numéricos */
+.kpi-value-container {
+    margin: 12px 0 8px 0;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.kpi-value {
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+}
+
+.kpi-unit {
+    font-size: 12px;
+    color: #9aa5b1;
+}
+
+.kpi-comparison {
+    font-size: 11px;
+    color: #9aa5b1;
+    margin: 0 0 4px 0;
+}
+
+.kpi-reduction {
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0;
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+.text-success { color: #219653; background: rgba(33, 150, 83, 0.1); }
+.text-blue { color: #2980B9; background: rgba(41, 128, 185, 0.1); }
+
+
+/* ============================================================
+   GRID DOS GRÁFICOS INTERATIVOS
+   ============================================================ */
+.charts-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+
+/* Responsividade: joga pra baixo se a tela for menor */
+@media (max-width: 1100px) {
+    .charts-layout { grid-template-columns: 1fr; }
+}
+
+.chart-section {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.chart-section h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 0 0 4px 0;
+}
+
+.chart-section p {
+    font-size: 12px;
+    color: #627d98;
+    margin: 0 0 24px 0;
+}
+
+.right-charts {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Containers para travar a altura dos gráficos do Chart.js */
+.canvas-container {
+    position: relative;
+    height: 380px;
+    width: 100%;
+}
+
+.canvas-container-small {
+    position: relative;
+    height: 180px;
+    width: 100%;
+}
+
+.canvas-container-donut {
+    position: relative;
+    height: 220px;
+    width: 100%;
+}

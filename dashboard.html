@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPI Dashboard | Valid Uniformes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./CSS/Style.css">
+    <link rel="stylesheet" href="CSS/dash.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./JS/Script.js" defer></script>
+</head>
+<body class="dash-body">
+
+    <nav class="navbar scrolled" id="navbar" style="background: #1a1d21;">
+        <div class="nav-left-group">
+            <button class="nav-hamburguer-btn" id="btn-menu-hamburguer">
+                <span class="hamburguer-line"></span>
+                <span class="hamburguer-line"></span>
+                <span class="hamburguer-line"></span>
+            </button>
+            <div class="nav-logo">Valid <span class="nav-sublogo">| Analytics</span></div>
+        </div>
+        <div class="nav-right">
+            <span class="nav-matricula">Matrícula: <strong id="display-matricula">---</strong></span>
+        </div>
+    </nav>
+
+    <div class="sidebar-overlay" id="sidebar-menu">
+        <div class="sidebar-container" id="sidebar-content">
+            <div class="sidebar-header">
+                <span class="sidebar-title">Menu Portal</span>
+                <button id="btn-fechar-menu" class="sidebar-close-btn">&times;</button>
+            </div>
+            <div class="sidebar-links" id="sidebar-links-inject"></div>
+            <button class="nav-btn sidebar-logout-btn" id="btn-sidebar-logout">Sair do Portal</button>
+        </div>
+    </div>
+
+    <main class="dashboard-wrapper">
+        <header class="dash-header">
+            <h1>Dashboard de Controle de Almoxarifado - Uniformes</h1>
+        </header>
+
+        <section class="kpi-cards">
+            <div class="kpi-card left-border-cyan">
+                <div class="kpi-top">
+                    <h3>Volume Mensal de Requisições</h3>
+                    <div class="kpi-icon bg-cyan-light">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+                    </div>
+                </div>
+                <div class="kpi-value-container">
+                    <span class="kpi-value">480</span>
+                    <span class="kpi-unit">peças/mês</span>
+                </div>
+                <p class="kpi-comparison">Antes: <strike>850 peças/mês</strike></p>
+                <p class="kpi-reduction text-success">↓ 43% de redução</p>
+            </div>
+
+            <div class="kpi-card left-border-blue">
+                <div class="kpi-top">
+                    <h3>Bloqueios Automáticos</h3>
+                    <div class="kpi-icon bg-blue-light">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#2980B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                </div>
+                <div class="kpi-value-container">
+                    <span class="kpi-value">127</span>
+                    <span class="kpi-unit">requisições barradas</span>
+                </div>
+                <p class="kpi-comparison" style="margin-top: 24px;">Cota por matrícula excedida neste mês</p>
+            </div>
+
+            <div class="kpi-card left-border-navy">
+                <div class="kpi-top">
+                    <h3>Complexidade de Estoque</h3>
+                    <div class="kpi-icon bg-navy-light">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    </div>
+                </div>
+                <div class="kpi-value-container">
+                    <span class="kpi-value">6</span>
+                    <span class="kpi-unit">SKUs ativos</span>
+                </div>
+                <p class="kpi-comparison">Antes: <strike>24 SKUs (4 cores)</strike></p>
+                <p class="kpi-reduction text-blue">1 cor padrão × 6 tamanhos</p>
+            </div>
+
+            <div class="kpi-card left-border-green">
+                <div class="kpi-top">
+                    <h3>Economia Estimada</h3>
+                    <div class="kpi-icon bg-green-light">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                </div>
+                <div class="kpi-value-container">
+                    <span class="kpi-value" style="color: var(--success);">R$ 18.500</span>
+                    <span class="kpi-unit">economizados no mês</span>
+                </div>
+                <p class="kpi-comparison" style="margin-top: 24px;">Redução de 50% no custo de reposição não planejada</p>
+            </div>
+        </section>
+
+        <div class="charts-layout">
+            <section class="chart-section line-chart-box">
+                <h2>Volume de Saída de Uniformes</h2>
+                <p>Últimos 6 meses - Impacto da implantação do sistema</p>
+                <div class="canvas-container">
+                    <canvas id="lineChart"></canvas>
+                </div>
+            </section>
+
+            <div class="right-charts">
+                <section class="chart-section">
+                    <h2>Otimização de Estoque</h2>
+                    <p>Comparação de SKUs</p>
+                    <div class="canvas-container-small">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                </section>
+
+                <section class="chart-section">
+                    <h2>Motivos de Saída</h2>
+                    <p>Distribuição das 480 peças (Maio)</p>
+                    <div class="canvas-container-donut">
+                        <canvas id="donutChart"></canvas>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Configuração global da fonte para os gráficos
+            Chart.defaults.font.family = "'Inter', sans-serif";
+            Chart.defaults.color = '#7b8794';
+
+            // 1. Gráfico de Linha (Volume de Saída)
+            const ctxLine = document.getElementById('lineChart').getContext('2d');
+            new Chart(ctxLine, {
+                type: 'line',
+                data: {
+                    labels: ['Dez', 'Jan', 'Fev', 'Mar', 'Abr', 'Mai'],
+                    datasets: [
+                        {
+                            label: 'Após Implantação VALID',
+                            data: [880, 850, 810, 790, 520, 480],
+                            borderColor: '#00b4d8', // Cyan
+                            backgroundColor: '#00b4d8',
+                            borderWidth: 3,
+                            pointRadius: 5,
+                            tension: 0.3
+                        },
+                        {
+                            label: 'Período Anterior (Sem Controle)',
+                            data: [950, 930, 920, 900, 900, 900],
+                            borderColor: '#e63946', // Red
+                            backgroundColor: '#e63946',
+                            borderWidth: 2,
+                            borderDash: [5, 5], // Linha tracejada
+                            pointRadius: 0,
+                            tension: 0.1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 8 } },
+                        tooltip: { mode: 'index', intersect: false }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, max: 1000, grid: { borderDash: [4, 4] } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+
+            // 2. Gráfico de Barras Horizontais (Otimização)
+            const ctxBar = document.getElementById('barChart').getContext('2d');
+            new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: ['Antes', 'Atual'],
+                    datasets: [{
+                        label: 'Quantidade de SKUs',
+                        data: [24, 6],
+                        backgroundColor: ['#e63946', '#00b4d8'],
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    indexAxis: 'y', // Deixa a barra deitada
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { beginAtZero: true, max: 30 },
+                        y: { grid: { display: false } }
+                    }
+                }
+            });
+
+            // 3. Gráfico de Rosca (Motivos)
+            const ctxDonut = document.getElementById('donutChart').getContext('2d');
+            new Chart(ctxDonut, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Vencimento da Cota Padrão', 'Admissão de Novos', 'Troca por Desgaste/Rasgo'],
+                    datasets: [{
+                        data: [75, 15, 10],
+                        backgroundColor: ['#00b4d8', '#2980B9', '#0A2540'],
+                        borderWidth: 2,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '65%',
+                    plugins: {
+                        legend: { position: 'bottom', labels: { usePointStyle: true, padding: 15, font: {size: 11} } }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

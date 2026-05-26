@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * VALID UNIFORMES — CORE SYSTEM ARQUITETURA SÊNIOR
+ * VALID UNIFORMES — CORE SYSTEM INDUSTRIAL V2
  * ============================================================================
  */
 
@@ -103,7 +103,6 @@ const UI = {
     configurarMenuGlobal: () => {
         const btnMenu = document.getElementById('btn-menu-hamburguer');
         const sidebar = document.getElementById('sidebar-menu');
-        const sidebarContent = document.getElementById('sidebar-content');
         const btnFechar = document.getElementById('btn-fechar-menu');
         const injectContainer = document.getElementById('sidebar-links-inject');
         const btnLogout = document.getElementById('btn-sidebar-logout');
@@ -116,21 +115,21 @@ const UI = {
 
         if (role === 'almoxarifado') {
             linksHTML = `
-                <button class="sidebar-link-btn ${paginaAtual === 'almoxarifado.html' ? 'active' : ''}" onclick="window.location.href='almoxarifado.html'"> Fila de Distribuição</button>
-                <button class="sidebar-link-btn" onclick="alert('Abrindo tela do Figma: Dashboard de Consumo')"> Dashboard de Consumo</button>
-                <button class="sidebar-link-btn ${paginaAtual === 'requisicao.html' ? 'active' : ''}" onclick="window.location.href='requisicao.html'"> Minhas Requisições</button>
-                <button class="sidebar-link-btn ${paginaAtual === 'index.html' ? 'active' : ''}" onclick="window.location.href='index.html'">Página Inicial</button>
+                <button class="sidebar-link-btn ${paginaAtual === 'almoxarifado.html' ? 'active' : ''}" onclick="window.location.href='almoxarifado.html'">Fila de Distribuição</button>
+                <button class="sidebar-link-btn ${paginaAtual === 'dashboard.html' ? 'active' : ''}" onclick="window.location.href='dashboard.html'">Dashboard de Consumo</button>
+                <button class="sidebar-link-btn ${paginaAtual === 'requisicao.html' ? 'active' : ''}" onclick="window.location.href='requisicao.html'">Minhas Requisições</button>
+                <button class="sidebar-link-btn ${paginaAtual === 'index.html' ? 'active' : ''}" onclick="window.location.href='index.html'">Página inicial</button>
             `;
         } else if (role === 'gestor') {
             linksHTML = `
-                <button class="sidebar-link-btn ${paginaAtual === 'gestor.html' ? 'active' : ''}" onclick="window.location.href='gestor.html'"> Pendências Equipe</button>
-                <button class="sidebar-link-btn ${paginaAtual === 'requisicao.html' ? 'active' : ''}" onclick="window.location.href='requisicao.html'"> Minhas Requisições</button>
-                <button class="sidebar-link-btn ${paginaAtual === 'index.html' ? 'active' : ''}" onclick="window.location.href='index.html'"> Página Inicial</button>
+                <button class="sidebar-link-btn ${paginaAtual === 'gestor.html' ? 'active' : ''}" onclick="window.location.href='gestor.html'">Pendências Equipe</button>
+                <button class="sidebar-link-btn ${paginaAtual === 'requisicao.html' ? 'active' : ''}" onclick="window.location.href='requisicao.html'">Minhas Requisições</button>
+                <button class="sidebar-link-btn ${paginaAtual === 'index.html' ? 'active' : ''}" onclick="window.location.href='index.html'">Página inicial</button>
             `;
         } else {
             linksHTML = `
                 <button class="sidebar-link-btn ${paginaAtual === 'requisicao.html' ? 'active' : ''}" onclick="window.location.href='requisicao.html'">Minhas Requisições</button>
-                <button class="sidebar-link-btn ${paginaAtual === 'index.html' ? 'active' : ''}" onclick="window.location.href='index.html'">Página Inicial</button>
+                <button class="sidebar-link-btn ${paginaAtual === 'index.html' ? 'active' : ''}" onclick="window.location.href='index.html'">Página inicial</button>
             `;
         }
 
@@ -162,7 +161,6 @@ const DashboardModule = {
                 btnGestor.onclick = () => window.location.href = 'almoxarifado.html';
             }
         }
-
         DashboardModule.calcularCotas();
     },
     calcularCotas: () => {
@@ -433,6 +431,26 @@ const AlmoxarifadoModule = {
     }
 };
 
+// NOVO MÓDULO: REGRAS DO METRICS DASHBOARD
+const MetricsDashboardModule = {
+    inicializar: () => {
+        if (AppState.papelUsuario !== 'almoxarifado') return window.location.href = 'index.html';
+        const displayMatricula = document.getElementById('display-matricula');
+        if (displayMatricula) displayMatricula.textContent = AppState.matriculaAtual;
+
+        // Calcula dados reais baseado no localStorage do SENAI
+        const filaAlmox = JSON.parse(localStorage.getItem('almox_valid')) || [];
+        const historicoGeral = JSON.parse(localStorage.getItem('historico_global_valid')) || [];
+
+        const totalAtendidos = historicoGeral.filter(h => h.status === 'Entregue').length;
+        const totalRecusados = historicoGeral.filter(h => h.status === 'Devolvido' || h.status.startsWith('Recusado')).length;
+
+        document.getElementById('kpi-fila-atual').textContent = filaAlmox.length;
+        document.getElementById('kpi-atendidos').textContent = totalAtendidos;
+        document.getElementById('kpi-recusados').textContent = totalRecusados;
+    }
+};
+
 const HistoricoUsuarioModule = {
     inicializar: () => {
         const displayMatricula = document.getElementById('display-matricula');
@@ -508,9 +526,6 @@ const Utils = {
     }
 };
 
-// ==========================================
-// BINDINGS DE EVENTOS E INICIALIZAÇÃO
-// ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     UI.configurarMenuGlobal();
 
@@ -524,9 +539,6 @@ document.addEventListener('DOMContentLoaded', () => {
         UI.inicializarScrollReveal();
         DashboardModule.inicializar();
         
-        // ==============================================================
-        // ISOLAMENTO DE BOTÕES (O que corrigiu o erro da mensagem passada)
-        // ==============================================================
         const btnSubmitExcecao = document.getElementById('btn-enviar-excecao');
         if (btnSubmitExcecao) btnSubmitExcecao.onclick = ModalModule.enviar;
         
@@ -562,6 +574,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('lista-pendencias')) { GestorModule.inicializar(); }
     if (document.getElementById('lista-almoxarifado')) { AlmoxarifadoModule.inicializar(); }
     if (document.getElementById('lista-historico-usuario')) { HistoricoUsuarioModule.inicializar(); }
+    if (document.getElementById('container-dashboard-kpis')) { MetricsDashboardModule.inicializar(); }
 });
 
 window.GestorModule = GestorModule;
