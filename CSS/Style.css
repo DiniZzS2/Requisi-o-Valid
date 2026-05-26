@@ -68,7 +68,7 @@ body {
 }
 
 .nav-matricula strong {
-  color: #1a6bde;
+  color: #ffffff;
   font-weight: 500;
 }
 
@@ -93,7 +93,7 @@ body {
 
 .nav-btn.accent {
   background: #1a6bde;
-  border-color: var(--cyan);
+  border-color: #1a6bde;
   color: var(--white);
   font-weight: 600;
 }
@@ -423,7 +423,7 @@ body {
 .hero-stat-label {
   font-size: 12px;
   font-weight: 400;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255, 255, 255, 0.596);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -494,7 +494,6 @@ body {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   background: rgb(255, 255, 255);
-  border: 1px solid var(--border);
   border-radius: 20px;
   overflow: hidden;
 }
@@ -788,7 +787,7 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 22px;
   font-weight: 400;
-  color: #1a6bde;
+  color: #000000;
   letter-spacing: -0.5px;
   margin-bottom: 4px;
 }
@@ -823,7 +822,8 @@ body {
   padding: 32px 36px;
   display: flex; 
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
+  font-size: 14px;
 }
 
 .field-group {
